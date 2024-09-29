@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+  db2:
+    container_name: db2
+    image: bitnami/postgresql:latest
+    restart: always
+    environment:
+      POSTGRESQL_USERNAME: admin
+      POSTGRESQL_PASSWORD: 488531
+      POSTGRESQL_DATABASE: admin
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/bitnami/postgresql
+    networks:
+      - mynetwork
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - mynetwork
+
+volumes:
+  pgdata: {}
+
+networks:
+  mynetwork:
+    driver: bridge
