@@ -45,6 +45,6 @@ $ docker ps
 
 ## A fazer
 
-Autenticação JWT
+Autenticação JWT,
 Testes
 
