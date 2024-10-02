@@ -41,6 +41,31 @@ $ docker-compose up -d
 $ docker ps
 
 ```
+## Testar rotas
+```
+http://localhost:3000/leads POST - Cadastrar lead
+{
+  "name": "Nome do Lead",
+  "phone": "Telefone do Lead",
+  "email": "emaildolead@example.com"
+}
+http://localhost:3000/leads GET - LISTAR TODOS
+Sem nenhum parametro apenas realizar um get
+
+http://localhost:3000/leads/:id GET BY ID
+Passar o parametro na url
+
+http://localhost:3000/leads UPDATE -
+PASSAR AS INFORMAÇÕES QUE DESEJA ALTERAR
+{
+    "id": 1,
+    "name": "JOAZINHO",
+    "phone": "Telefone do Lead",
+    "email": "emaildolead@example.com",
+
+}
+```
+
 
 
 ## A fazer
@@ -48,4 +73,7 @@ $ docker ps
 Autenticação JWT,
 Testes
 
+## CONEXÃO NO ARQUIVO .ENV
+```
 DATABASE_URL="postgresql://admin:488531@localhost:5432/admin"
+```
