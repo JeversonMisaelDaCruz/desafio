@@ -48,3 +48,4 @@ $ docker ps
 Autenticação JWT,
 Testes
 
+DATABASE_URL="postgresql://admin:488531@localhost:5432/admin"
