@@ -45,7 +45,7 @@ $ docker ps
 
 ## A fazer
 
-Autenticação JWT,
-Testes
+Teste
+Criar enum no banco de dados para o status
 
 DATABASE_URL="postgresql://admin:488531@localhost:5432/admin"
