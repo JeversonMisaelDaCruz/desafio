@@ -70,8 +70,8 @@ PASSAR AS INFORMAÇÕES QUE DESEJA ALTERAR
 
 ## A fazer
 
-Autenticação JWT,
-Testes
+Teste
+Criar enum no banco de dados para o status
 
 ## CONEXÃO NO ARQUIVO .ENV
 ```
