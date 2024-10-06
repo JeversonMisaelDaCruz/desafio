@@ -8,12 +8,12 @@ generator client {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
   password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  deletedAt DateTime @db.Date
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime? @db.Date
 }
 
 model Lead {
@@ -21,6 +21,7 @@ model Lead {
   name      String
   phone     String
   email     String
+  status    String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
