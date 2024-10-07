@@ -1,4 +1,3 @@
-// src/auth/auth.module.ts
 import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
@@ -7,24 +6,24 @@ import { PassportModule } from '@nestjs/passport';
 import { JwtStrategy } from './jwt.strategy';
 import { LocalStrategy } from './local.strategy';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { PrismaModule } from '../prisma/prisma.module'; // Ajuste o caminho para corresponder à estrutura de pastas
+import { PrismaModule } from '../prisma/prisma.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(), // Importa o ConfigModule e carrega as variáveis de ambiente
+    ConfigModule.forRoot(),
     PassportModule,
-    PrismaModule, // Verifique se o caminho está correto e o PrismaModule está na pasta 'src'
+    PrismaModule,
     JwtModule.registerAsync({
-      imports: [ConfigModule], // Importa o ConfigModule no contexto do JwtModule
-      inject: [ConfigService], // Injeta o ConfigService para acessar as variáveis de ambiente
+      imports: [ConfigModule],
+      inject: [ConfigService],
       useFactory: async (configService: ConfigService) => ({
-        secret: configService.get<string>('JWT_SECRET') || 'default_secret', // Usa a variável de ambiente JWT_SECRET
-        signOptions: { expiresIn: '60m' }, // Expiração do token JWT
+        secret: configService.get<string>('JWT_SECRET') || 'default_secret',
+        signOptions: { expiresIn: '10m' },
       }),
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, JwtStrategy, LocalStrategy], // Certifique-se de incluir o JwtStrategy também
+  providers: [AuthService, JwtStrategy, LocalStrategy],
   exports: [AuthService],
 })
 export class AuthModule {}

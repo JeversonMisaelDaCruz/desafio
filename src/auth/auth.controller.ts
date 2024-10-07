@@ -7,7 +7,6 @@ import { LocalAuthGuard } from './local-auth.guard';
 export class AuthController {
   constructor(private authService: AuthService) {}
 
-  // Rota para registro de usuários
   @Post('register')
   async register(@Body() data: { email: string; password: string }) {
     return this.authService.register(data);

@@ -24,7 +24,6 @@ export class AuthService {
     return null;
   }
 
-  // Método para login
   async login(user: any) {
     const payload = { email: user.email, sub: user.id };
     return {
@@ -32,7 +31,6 @@ export class AuthService {
     };
   }
 
-  // Método para registrar um novo usuário
   async register(data: { email: string; password: string }) {
     const hashedPassword = await bcrypt.hash(data.password, 10);
     const user = await this.prisma.user.create({

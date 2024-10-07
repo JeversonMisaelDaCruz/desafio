@@ -12,12 +12,11 @@ async function bootstrap() {
   app.enableCors({
     origin: 'http://localhost:8081',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    credentials: true, // Se você estiver usando cookies ou autenticação baseada em sessão
+    credentials: true,
     allowedHeaders: 'Content-Type, Accept, Authorization',
   });
   await app.listen(port);
 
-  // Exibir o IP e porta
-  Logger.log(`🚀 Server running on: http://localhost:${port}`);
+  Logger.log(`🚀 Application is running on: http://localhost:${port}`);
 }
 bootstrap();
