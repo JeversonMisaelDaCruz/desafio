@@ -14,8 +14,8 @@ export class LeadsService {
         email: data.email,
         phone: data.phone,
         status: data.status,
-        createdAt: new Date(), // Se precisar incluir uma data personalizada
-        updatedAt: new Date(), // Atualiza a data de modificação
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
     });
   }
