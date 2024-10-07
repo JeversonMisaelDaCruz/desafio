@@ -7,7 +7,17 @@ export class LeadsService {
   constructor(private prisma: PrismaService) {}
 
   async create(data: Prisma.LeadCreateInput): Promise<Lead> {
-    return this.prisma.lead.create({ data });
+    console.log('Data recebido no service:', data);
+    return this.prisma.lead.create({
+      data: {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        status: data.status,
+        createdAt: new Date(), // Se precisar incluir uma data personalizada
+        updatedAt: new Date(), // Atualiza a data de modificação
+      },
+    });
   }
 
   async findAll(): Promise<Lead[]> {

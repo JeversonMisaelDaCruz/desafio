@@ -9,6 +9,12 @@ async function bootstrap() {
   });
   app.setGlobalPrefix('api');
   const port = 3000;
+  app.enableCors({
+    origin: 'http://localhost:8081',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    credentials: true, // Se você estiver usando cookies ou autenticação baseada em sessão
+    allowedHeaders: 'Content-Type, Accept, Authorization',
+  });
   await app.listen(port);
 
   // Exibir o IP e porta
