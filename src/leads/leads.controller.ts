@@ -10,10 +10,10 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { LeadsService } from './leads.service';
-import { JwtAuthGuard } from '../auth/jwt-auth.guard'; // Ajuste o caminho se necessário
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { Prisma } from '@prisma/client';
 
-@UseGuards(JwtAuthGuard) // Aplica o guard a todas as rotas do controlador
+@UseGuards(JwtAuthGuard)
 @Controller('leads')
 export class LeadsController {
   constructor(private readonly leadsService: LeadsService) {}

@@ -7,18 +7,17 @@ import { PrismaService } from 'src/prisma/prisma.service';
 @Injectable()
 export class AuthService {
   constructor(
-    @Inject(PrismaService) private readonly prisma: PrismaService, // Injete explicitamente o PrismaService
+    @Inject(PrismaService) private readonly prisma: PrismaService,
     private readonly jwtService: JwtService,
   ) {}
 
-  // Método para validar o usuário
   async validateUser(email: string, password: string): Promise<any> {
     const user = await this.prisma.user.findUnique({
       where: { email },
     });
 
     if (user && bcrypt.compareSync(password, user.password)) {
-      const { password: _, ...result } = user;
+      const { password: _ , ...result } = user;
       return result;
     }
     return null;
